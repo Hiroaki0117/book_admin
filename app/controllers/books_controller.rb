@@ -6,9 +6,9 @@ class BooksController < ApplicationController
         @book = Book.find(params[:id])
         respond_to do |format|
             format.html
-            format.json {render json: @book}
+            format.json
+            # format.json {render json: @book}
         end
-        # render :show
     end
 
     def destroy
