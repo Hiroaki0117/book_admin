@@ -1,13 +1,14 @@
 class BooksController < ApplicationController
-    protect_form_forgery except [:destroy]
+    protect_from_forgery except: [:destroy]
     before_action :set_book, only:[:show, :destroy]
     around_action :action_logger, only:[:destroy]
     def show
         @book = Book.find(params[:id])
         respond_to do |format|
             format.html
-            format.json
+            format.json {render json: @book}
         end
+        # render :show
     end
 
     def destroy

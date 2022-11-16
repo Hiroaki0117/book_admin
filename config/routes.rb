@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   get "/books/:id" => "books#show"    # Booksコントローラーのshowメソッドを実行する
   delete "/books/:id" => "books#destroy"
   resources :publishers
+  resource :profile
 end
